@@ -10,11 +10,10 @@ Chrome Driver - https://chromedriver.chromium.org/downloads
 2. Execute A Sample  
 
 > python OpenWebControl.py  
+![](https://raw.githubusercontent.com/NNNIC/psgg-python-selenium-sample/main/wiki/stategoselenium.gif)
 
 3. StateGo   
 
 ![](https://raw.githubusercontent.com/NNNIC/psgg-python-selenium-sample/main/wiki/s1.PNG)
+ 
 
-4. Footage
-
-![](https://raw.githubusercontent.com/NNNIC/psgg-python-selenium-sample/main/wiki/stategoselenium.gif)
