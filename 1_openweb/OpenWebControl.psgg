@@ -1,0 +1,927 @@
+﻿;PSGG Editor Backup File
+version=1.1
+file=OpenWebControl.xlsx
+guid=a81bfe24-2f64-4270-9a3f-95290e724acc
+;set read_from  excel or psgg
+read_from=psgg
+;set savemode with_excel or psgg_only
+save_mode=psgg_only
+;set check_excel_writable yes or no
+check_excel_writable=no
+
+------#======*<Guid(D13821FE-FA27-4B04-834C-CEC1E5670F48)>*======#------
+
+sheet=state-chart
+nameid_list=,n001,n002,n003,n004,n01a,n005,n019,,n006,,n007,,n01b,n01c,n01d,,n008,n009,n00a,n00b,,n00c,n00d,,n00e,n00f,,n010,n011,,n012,n013,n014,n015,,n016,n017,n018,,,
+stateid_list=,,,,,,,,,,,,,,,,s000e,s000f,s0010,s0011,s0012,,s0014,s0015,s0016,s0017,s0025,s0019,,s002d,s0023,s002c,s002e,s0030,,,,s0026,,,s002f
+max_name_id=29
+max_state_id=48
+[id_name_dic]
+n001=thumbnail
+n002=state
+n003=state-cmt
+n004=state-ref
+n005=nextstate
+n006=embed
+n007=members
+n008=vars
+n009=init
+n00a=init-cmt
+n00b=init-ref
+n00c=update
+n00d=update-cmt
+n00e=wait
+n00f=wait-cmt
+n010=post_wait
+n011=post_wait-cmt
+n012=branch
+n013=branch-cmt
+n014=brcond
+n015=nowait
+n016=!dir
+n017=!pos
+n018=!uuid
+n019=gosubstate
+n01a=state-typ
+n01b=loop_init
+n01c=loop_cond
+n01d=loop_next
+
+
+[id_state_dic]
+s000e=S_START
+s000f=S_END
+s0010=S_INIT
+s0011=E_0000
+s0012=S_OPEN
+s0014=S_CLOSE
+s0015=S_INPUT_ID
+s0016=S_INPUT_PWD
+s0017=S_INPUT_BUTTON
+s0019=S_WAIT_1SEC3
+s0023=C_0001
+s0025=S_WAIT_TRANSFER
+s0026=S_CLICK_ENGLISH
+s002c=S_CLICK_JAPANESE
+s002d=S_WAIT_1SEC4
+s002e=S_WAIT_TRANSFER4
+s002f=S_WAIT_TRANSFER5
+s0030=S_WAIT_TRANSFER6
+
+
+[s000e]
+n002=S_START
+n01a=start
+n005=S_INIT
+n016=@@@
+/
+(100,100)
+The root
+@@@
+
+n017=45,114
+n018=1
+
+[s000f]
+n002=S_END
+n01a=end
+n016=@@@
+/
+(100,100)
+The root
+@@@
+
+n017=611,1710
+n018=2
+
+[s0010]
+n002=S_INIT
+n003=初期化
+n005=S_OPEN
+n009=@@@
+self.m_driver = webdriver.Chrome(options=options)
+@@@
+
+n016=@@@
+/
+(100,100)
+The root
+@@@
+
+n017=136,113
+n018=3
+
+[s0011]
+n002=E_0000
+n006=@@@
+m_driver = None
+m_cnt = 0
+@@@
+
+n016=@@@
+/
+(100,100)
+The root
+@@@
+
+n017=139,12
+n018=4
+
+[s0012]
+n002=S_OPEN
+n005=S_WAIT_TRANSFER5
+n009=@@@
+self.m_driver.get("https://statego.programanic.com/")
+@@@
+
+n016=@@@
+/
+(100,100)
+The root
+@@@
+
+n017=130,263
+n018=5
+
+[s0014]
+n002=S_CLOSE
+n005=S_END
+n009=self.m_driver.close()
+n016=@@@
+/
+(100,100)
+The root
+@@@
+
+n017=416,1703
+n018=7
+
+[s0015]
+n002=S_INPUT_ID
+n005=S_INPUT_PWD
+n009=@@@
+self.m_driver.find_element(By.ID,'login_id').send_keys("hoge")
+@@@
+
+n016=@@@
+/LoginSet/
+(563,23)
+Login sample
+@@@
+
+n017=818,12
+n018=8
+
+[s0016]
+n002=S_INPUT_PWD
+n005=S_INPUT_BUTTON
+n009=@@@
+self.m_driver.find_element(By.ID,'password').send_keys("hoge")
+@@@
+
+n016=@@@
+/LoginSet/
+(563,23)
+Login sample
+@@@
+
+n017=1016,16
+n018=9
+
+[s0017]
+n002=S_INPUT_BUTTON
+n005=
+n009=@@@
+self.m_driver.find_element(By.XPATH,'//input[@type="submit"').click()
+@@@
+
+n016=@@@
+/LoginSet/
+(563,23)
+Login sample
+@@@
+
+n017=1205,0
+n018=10
+
+[s0019]
+n001=(bitmap)
+n002=S_WAIT_1SEC3
+n005=S_CLICK_ENGLISH
+n009=time.sleep(5)
+n016=@@@
+/
+(100,100)
+The root
+@@@
+
+n017=185,685
+n018=31
+
+[s0023]
+n002=C_0001
+n003=@@@
+Open the "StateGo" website and switch between Japanese and English every 5 seconds, repeat 5 times, then stop.
+@@@
+
+n016=@@@
+/
+(100,100)
+The root
+@@@
+
+n017=330,14
+n018=22
+
+[s0025]
+n001=(bitmap)
+n002=S_WAIT_TRANSFER
+n003=遷移を待つ
+n005=S_WAIT_1SEC4
+n009=@@@
+wait = WebDriverWait(self.m_driver, 10)  # 最大10秒間待機します
+target_element = wait.until(EC.presence_of_element_located((By.XPATH, '//a[text()="Japanese"]')))
+print("\n--------------> We are on English　page \n")
+@@@
+
+n016=@@@
+/
+(100,100)
+The root
+@@@
+
+n017=655,678
+n018=24
+
+[s0026]
+n002=S_CLICK_ENGLISH
+n003=Englishへ
+n005=S_WAIT_TRANSFER
+n009=@@@
+div = self.m_driver.find_element(By.XPATH, '//a[text()="English"]')
+div.click();
+@@@
+
+n016=@@@
+/
+(100,100)
+The root
+@@@
+
+n017=441,675
+n018=25
+
+[s002c]
+n001=(bitmap)
+n002=S_CLICK_JAPANESE
+n003=Japaneseクリック
+n005=S_WAIT_TRANSFER4
+n009=@@@
+div = self.m_driver.find_element(By.XPATH, '//a[text()="Japanese"]')
+div.click();
+@@@
+
+n016=@@@
+/
+(100,100)
+The root
+@@@
+
+n017=1096,677
+n018=33
+
+[s002d]
+n001=(bitmap)
+n002=S_WAIT_1SEC4
+n005=S_CLICK_JAPANESE
+n009=time.sleep(5)
+n016=@@@
+/
+(100,100)
+The root
+@@@
+
+n017=885,674
+n018=32
+
+[s002e]
+n002=S_WAIT_TRANSFER4
+n003=遷移を待つ
+n005=S_WAIT_TRANSFER6
+n009=@@@
+wait = WebDriverWait(self.m_driver, 10)  # 最大10秒間待機します90
+target_element = wait.until(EC.presence_of_element_located((By.XPATH, '//a[text()="English"]')))
+print("\n--------------> We are on Japanse　page \n")
+@@@
+
+n016=@@@
+/
+(100,100)
+The root
+@@@
+
+n017=1314,678
+n018=35
+
+[s002f]
+n002=S_WAIT_TRANSFER5
+n003=遷移を待つ
+n005=S_WAIT_1SEC3
+n009=@@@
+wait = WebDriverWait(self.m_driver, 10)  # 最大10秒間待機します
+target_element = wait.until(EC.presence_of_element_located((By.XPATH, '//a[text()="English"]')))
+print("\n--------------> We are on Japanse　page \n")
+@@@
+
+n016=@@@
+/
+(100,100)
+The root
+@@@
+
+n017=361,266
+n018=37
+
+[s0030]
+n001=(bitmap)
+n002=S_WAIT_TRANSFER6
+n009=self.m_cnt = self.m_cnt + 1
+n012=@@@
+brifc(S_WAIT_1SEC3);
+brelse(S_CLOSE);
+@@@
+
+n013=@@@
+?
+?
+@@@
+
+n014=@@@
+self.m_cnt < 5
+?
+@@@
+
+n016=@@@
+/
+(100,100)
+The root
+@@@
+
+n017=229,1433
+n018=39
+
+
+
+------#======*<Guid(70C5A739-223A-457D-8AEE-1A0E2050D5AE)>*======#------
+
+sheet=config
+
+###VARIOUS-CONTENTS-BEGIN###
+; The setting was created automatically. 2023/05/04 9:46:59
+; * pssgEditor version : 0.73.172009.ddf164274cdb5999dda57d462a9268c5ede78159
+psggfile=@@@
+OpenWebControl.psgg
+@@@
+xlsfile=@@@
+OpenWebControl.xlsx
+@@@
+guid=@@@
+a81bfe24-2f64-4270-9a3f-95290e724acc
+@@@
+bitmap_width=5000
+bitmap_height=2000
+c_statec_cmt=1
+c_thumbnail=1
+c_contents=1
+force_display_outpin=0
+last_action=@@@
+init,Saved
+@@@
+target_pathdir=@@@
+/
+@@@
+state_location_list=@@@
+
+@@@
+nodegroup_comment_list=@@@
+[{"Key":"\/","Value":"The root"},{"Key":"\/LoginSet\/","Value":"Login sample"}]
+@@@
+nodegroup_pos_list=@@@
+[{"Key":"\/","Value":{"x":100,"y":100}},{"Key":"\/LoginSet\/","Value":{"x":563,"y":23}}]
+@@@
+fillter_state_location_list=@@@
+[{"Key":"\/","Value":[{"Key":"S_START","Value":{"x":45,"y":114}},{"Key":"S_END","Value":{"x":611,"y":1710}},{"Key":"E_0000","Value":{"x":139,"y":12}},{"Key":"S_INIT","Value":{"x":136,"y":113}},{"Key":"S_OPEN","Value":{"x":130,"y":263}},{"Key":"S_WAIT_1DAY","Value":{"x":224,"y":1700}},{"Key":"S_CLOSE","Value":{"x":416,"y":1703}},{"Key":"S_INPUT_ID","Value":{"x":818,"y":12}},{"Key":"S_INPUT_PWD","Value":{"x":1016,"y":16}},{"Key":"S_INPUT_BUTTON","Value":{"x":1205,"y":0}},{"Key":"S_WAIT_1SEC1","Value":{"x":1022,"y":279}},{"Key":"S_WAIT_1SEC2","Value":{"x":1675,"y":349}},{"Key":"C_0001","Value":{"x":330,"y":14}},{"Key":"S_INPUT_EMAIL","Value":{"x":458,"y":344}},{"Key":"S_CLICK_URL1","Value":{"x":499,"y":266}},{"Key":"S_WAIT_TRANSFER","Value":{"x":655,"y":678}},{"Key":"S_WAIT_TRANSFER1","Value":{"x":192,"y":1399}},{"Key":"S_CLICK_URL2","Value":{"x":379,"y":1397}},{"Key":"S_WAIT_TRANSFER2","Value":{"x":637,"y":1400}},{"Key":"S_CLICK_URL3","Value":{"x":824,"y":1398}},{"Key":"S_WAIT_TRANSFER3","Value":{"x":1030,"y":1397}},{"Key":"S_WAIT_1SEC3","Value":{"x":185,"y":685}},{"Key":"S_WAIT_1SEC4","Value":{"x":885,"y":674}},{"Key":"S_CLICK_URL4","Value":{"x":54,"y":902}},{"Key":"S_CLICK_ENGLISH","Value":{"x":441,"y":675}},{"Key":"____altnative_state____LoginSet","Value":{"x":563,"y":23}},{"Key":"S_CLICK_JAPANESE","Value":{"x":1096,"y":677}},{"Key":"S_WAIT_TRANSFER4","Value":{"x":1314,"y":678}},{"Key":"S_WAIT_TRANSFER5","Value":{"x":361,"y":266}},{"Key":"S_WAIT_TRANSFER6","Value":{"x":229,"y":1433}}]},{"Key":"\/LoginSet\/","Value":[{"Key":"S_INPUT_ID","Value":{"x":818,"y":12}},{"Key":"S_INPUT_PWD","Value":{"x":1016,"y":16}},{"Key":"S_INPUT_BUTTON","Value":{"x":1205,"y":0}}]}]
+@@@
+linecolor_data=@@@
+[{"color":{"knownColor":0,"name":null,"state":2,"value":4285493103},"pattern":"BACKTO_"}]
+@@@
+use_external_command=0
+external_command=@@@
+
+@@@
+source_editor_set=@@@
+
+@@@
+label_show=0
+label_text=@@@
+test
+@@@
+option_delete_thisstring=1
+option_delete_br_string=1
+option_delete_bracket_string=1
+option_delete_s_state_string=1
+option_copy_output_to_clipboard=0
+option_convert_with_confirm=0
+option_ignore_case_of_state=0
+option_editbranch_automode=1
+option_use_custom_prefix=0
+option_omit_basestate_string=0
+option_hide_basestate_contents=1
+option_hide_branchcmt_onbranchbox=0
+font_name=@@@
+MS UI Gothic
+@@@
+font_size=11
+comment_font_size=0
+contents_font_size=0
+state_width=140
+state_height=20
+state_short_width=50
+state_short_height=20
+comment_block_height=20
+content_max_height=200
+comment_block_fixed=0
+line_space=-1
+userbutton_title=@@@
+
+@@@
+userbutton_command=@@@
+
+@@@
+userbutton_callafterconvert=0
+itemeditform_size_list=@@@
+[{"Key":"init","Value":{"height":395,"width":1160}}]
+@@@
+decoimage_typ_name=@@@
+sym
+@@@
+use_donotedit_mark=0
+donotedit_mark_columns=@@@
+76,116,136
+@@@
+donotedit_mark=@@@
+*DoNotEdit*
+@@@
+
+###VARIOUS-CONTENTS-END###
+
+
+------#======*<Guid(70C5A739-223A-457D-8AEE-1A0E2050D5AE)>*======#------
+
+sheet=template-source
+
+###VARIOUS-CONTENTS-BEGIN###
+
+###VARIOUS-CONTENTS-END###
+
+
+------#======*<Guid(70C5A739-223A-457D-8AEE-1A0E2050D5AE)>*======#------
+
+sheet=template-statefunc
+
+###VARIOUS-CONTENTS-BEGIN###
+<<<?state/^C_/
+eof>>>
+#    [[state]]
+#    [[state-cmt]]
+
+<<<?state/^E_/
+[[embed]]
+eof>>>
+
+
+<<<?state-typ/^start$/
+def [[state]](self, bFirst) :
+    self.Goto(self.[[nextstate]])
+    self.NoWait()
+    return
+eof>>>
+
+<<<?state-typ/^end$/
+def [[state]](self, bFirst) :
+    # nothing to do
+    return
+eof>>>
+
+<<<?state-typ/^gosub$/
+def [[state]](self, bFirst) :
+    self.GoSubState(self.[[gosubstate]],self.[[nextstate]])
+    self.NoWait()
+    return
+eof>>>
+
+<<<?state-typ/^subreturn$/
+def [[state]](self, bFirst) :
+    self.ReturnState()
+    self.NoWait()
+    return
+eof>>>
+
+<<<?state-typ/^loop$/
+[[members]]
+def [[state]](self, bFirst) :
+    [[loop_init]]
+    self.Goto(self.[[state]]_LoopCheckAndGosub____)
+    self.NoWait()
+    return
+
+def [[state]]_LoopCheckAndGosub____(self, bFirst) :
+    if  [[loop_cond]] :
+        self.GoSubState(self.[[gosubstate]],self.[[state]]_LoopNext____)
+    else :
+        self.Goto(self.[[nextstate]])
+    self.NoWait()
+    return
+
+def [[state]]_LoopNext____(self, bFirst) :
+    [[loop_next]]
+    self.Goto(self.[[state]]_LoopCheckAndGosub____)
+    self.NoWait()
+    return
+eof>>>
+
+[[members]]
+def [[state]](self,bFirst) :
+
+    [[vars]]
+
+    <<<?init
+    if (bFirst) :
+        [[init]]
+    >>>
+
+    [[update]]
+
+    <<<?wait
+    if [[wait]] :
+        return
+    >>>
+
+    [[post_wait]]
+
+    [[branch]]
+
+    <<<?nextstate
+    if self.HasNextState()==False :
+        self.Goto(self.[[nextstate]])
+    >>>
+
+    <<<?nowait
+    if self.HasNextState() :
+        self.NoWait()
+    >>>
+    return
+###VARIOUS-CONTENTS-END###
+
+
+------#======*<Guid(70C5A739-223A-457D-8AEE-1A0E2050D5AE)>*======#------
+
+sheet=setting.ini
+
+###VARIOUS-CONTENTS-BEGIN###
+[setting]
+
+psgg=OpenWebControl.psgg
+xls=OpenWebControl.xlsx
+sub_src=
+gen_src=OpenWebControl.py
+
+manager_src=
+manager_dir=
+
+template_src=
+template_func=template-statefunc.txt
+
+help=help.ini
+helpweb=starterkit2\python\helpweb.html
+
+
+kitpath=starterkit2\python
+
+
+
+[setupinfo]
+
+starterkit=@@@
+https://github.com/NNNIC/psgg-starter-kit.git 6f960da6977b5b83a9073c66b2bb55ac48f80cc6
+@@@
+
+
+
+
+
+
+lang=python
+framework=
+
+statemachine=OpenWebControl
+
+prefix=__PREFIX__
+xlsdir=@@@
+G:\statego\samples\psgg-python-selenium-sample\1_opengoogle
+@@@
+
+
+gendir=@@@
+G:\statego\samples\psgg-python-selenium-sample\1_opengoogle
+@@@
+
+
+genrdir=.
+incrdir=.
+
+code_output_start=[SYN-G-GEN OUTPUT START]
+code_output_end=[SYN-G-GEN OUTPUT END]
+
+; This section has macro defines for converting.
+
+; commentline format  {%0} will be replaced to a comment.
+
+
+
+[macro]
+
+commentline=# {%0}
+
+@branch=@@@
+<<<?"{%0}"/^brifc{0,1}$/
+if [[brcond:{%N}]] :
+    self.Goto( self.{%1} )
+>>>
+<<<?"{%0}"/^brelseifc{0,1}$/
+elif [[brcond:{%N}]] :
+    self.Goto( self.{%1} )
+>>>
+<<<?"{%0}"/^brelse$/
+else :
+    self.Goto( self.{%1} )
+>>>
+<<<?"{%0}"/^br_/
+self.{%0}(self.{%1})
+>>>
+@@@
+
+
+
+
+
+
+
+
+[jpn]
+
+title=Python スタートキット 2018/10/14a
+
+detail=@@@
+Python 用のステートマシンを作成します。
+
+※サンプルプロジェクトを次のＵＲＬより入手可能。
+https://github.com/NNNIC/psgg-phython-sample
+
+
+# ドキュメント用フォルダ
+  以下のファイルを作成します。
+
+      OpenWebControl.pssg   --- StateGoデータファイル
+
+# ソース用フォルダ
+  以下のファイルが作成されます。
+
+      OpenWebControl.py  ---  OpenWebControl.pssgファイルからの変換ソースコードを挿入。
+
+
+注意 : 既に同名のファイルがある場合は生成されません。
+　　　 削除してから生成してください。
+
+@@@
+
+
+
+
+
+
+
+
+
+[en]
+
+title=Phython STARTER KIT 2018/10/14a
+
+detail=@@@
+This dialog will create files for a state machine.
+
+* You may get the sample project from the below url.
+https://github.com/NNNIC/psgg-python-sample
+
+# Document Folder
+  File:
+
+      OpenWebControl.pssg  --- StateGo Data file.
+
+# Source Folder
+　File:
+      OpenWebControl.py   -- the editor will convert from the OpenWebControl.pssg file into this file.
+
+NOTE : If the same name files exists, the file will not be created.
+       Please delete the same name files ahead of the creation.
+
+
+@@@
+###VARIOUS-CONTENTS-END###
+
+
+------#======*<Guid(70C5A739-223A-457D-8AEE-1A0E2050D5AE)>*======#------
+
+sheet=help
+
+###VARIOUS-CONTENTS-BEGIN###
+[nextstate]
+
+jpn=次に実行するステートを指定する。
+en=Specify the next state to be executed.
+[branch]
+
+jpn=@@@
+分岐処理を指定する。
+１行に一つの分岐命令を書く。
+GUIにより上書きされるため引数は適当に指定する。
+例）
+br_YES(?);
+br_NO(?);
+br_UNKNOWN(?);
+@@@
+
+en=@@@
+Specify branch functions.
+Each line has a branch function.
+Specify a tentavie parameter for each branch function because GUI overwrites the parameter.
+i.e)
+br_YES(?);
+br_NO(?);
+br_UNKNOWN(?);
+@@@
+
+[update]
+
+jpn=更新処理を指定する。
+en=Specify a update process.
+[wait]
+
+jpn=@@@
+待ち条件を指定する。
+true時にループを解除する。
+@@@
+
+en=@@@
+Specify a waiting condition.
+Release the loop if the condition is true.
+@@@
+
+[loop_next]
+
+en=Loop increment.
+jpn=ループ用インクリメント
+[state]
+
+jpn=@@@
+ステート名を指定する。
+英文字、数字、アンダーバーで構成される。
+先頭は英文字およびアンダーバー。
+@@@
+
+en=@@@
+Specify a state name.
+The state name consits of alphabet, number and underbar except that the head characther should be alphabet or a underbar.
+@@@
+
+[post_wait]
+
+jpn='wait'後の処理を指定する。
+en=Specify the post process after 'wait'.
+[nowait]
+
+jpn=@@@
+次のステートへ同期待ちをせず実行する時に 'nowait'等を指定する。
+同期待ち時には何も指定しない。
+@@@
+
+en=@@@
+Specify 'nowait' and so on if the next state will be execute without a sync wait.
+Do not specify any word wheh the next state will be execute with a sync wait.
+@@@
+
+[!uuid]
+
+jpn=システムがステートのuuid指定に使用。
+en=@@@
+System uses this for the uuid of the state.
+@@@
+
+[init]
+
+jpn=初期化用処理を指定する。
+en=Specify a initial process.
+[!dir]
+
+jpn=システムがステートのディレクトリ指定に使用。
+en=@@@
+System uses this for the directory path of the state.
+@@@
+
+[loop_init]
+
+en=Loop Initialization
+jpn=ループ初期化
+[thumbnail]
+
+jpn=説明用のイメージを指定する。
+en=@@@
+Specify a image for explanation of this state.
+@@@
+
+[loop_cond]
+
+en=Loop if the condition is true
+jpn=@@@
+ループ条件
+true時にループする。
+@@@
+###VARIOUS-CONTENTS-END###
+
+
+------#======*<Guid(70C5A739-223A-457D-8AEE-1A0E2050D5AE)>*======#------
+
+sheet=itemsinfo
+
+###VARIOUS-CONTENTS-BEGIN###
+[inpmethod]
+
+init=
+branch-cmt=
+state-ref=
+wait=
+wait-cmt=
+embed=
+gosubstate=
+loop_cond=
+branch=
+!dir=
+post_wait-cmt=
+nowait=@@@
+*select
+nowait
+@@@
+
+members=
+thumbnail=
+update-cmt=
+post_wait=
+state-cmt=
+state-typ=
+!pos=
+!uuid=
+nextstate=
+state=
+S_=
+brcond=
+update=
+init-cmt=
+loop_next=
+vars=
+C_=
+E_=
+init-ref=
+loop_init=
+[stateloc]
+
+E_=S1
+S_=S0
+C_=S2
+[itemcond]
+
+state-typ=read_only,exclusion,(S0)
+embed=read_only,exclusion,S1
+branch=read_only,exclusion,S0
+state=read_only,share,S.+
+nextstate=read_only,exclusion,S0
+return=read_only,exclusion,S0
+basestate=read_only,share,S.+
+brcond=read_only,exclusion,S0
+thumbnail=read_only,share,S.+
+###VARIOUS-CONTENTS-END###
+
+
+
+------#======*<Guid(4DC98CBA-6257-4E26-A454-A53F85BC234C)>*======#------
+
+
