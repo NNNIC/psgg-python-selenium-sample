@@ -13,4 +13,8 @@ Chrome Driver - https://chromedriver.chromium.org/downloads
 
 3. StateGo   
 
-![]()
+![](https://raw.githubusercontent.com/NNNIC/psgg-python-selenium-sample/main/wiki/s1.PNG)
+
+4. Footage
+
+![](https://raw.githubusercontent.com/NNNIC/psgg-python-selenium-sample/main/wiki/stategoselenium.gif)
