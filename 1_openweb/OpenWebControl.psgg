@@ -91,7 +91,7 @@ n016=@@@
 The root
 @@@
 
-n017=611,1710
+n017=1150,729
 n018=2
 
 [s0010]
@@ -140,7 +140,7 @@ n016=@@@
 The root
 @@@
 
-n017=130,263
+n017=130,266
 n018=5
 
 [s0014]
@@ -153,7 +153,7 @@ n016=@@@
 The root
 @@@
 
-n017=416,1703
+n017=955,722
 n018=7
 
 [s0015]
@@ -215,7 +215,7 @@ n016=@@@
 The root
 @@@
 
-n017=185,685
+n017=622,266
 n018=31
 
 [s0023]
@@ -250,7 +250,7 @@ n016=@@@
 The root
 @@@
 
-n017=655,678
+n017=1092,266
 n018=24
 
 [s0026]
@@ -268,7 +268,7 @@ n016=@@@
 The root
 @@@
 
-n017=441,675
+n017=878,266
 n018=25
 
 [s002c]
@@ -287,7 +287,7 @@ n016=@@@
 The root
 @@@
 
-n017=1096,677
+n017=1533,266
 n018=33
 
 [s002d]
@@ -301,7 +301,7 @@ n016=@@@
 The root
 @@@
 
-n017=885,674
+n017=1322,266
 n018=32
 
 [s002e]
@@ -320,7 +320,7 @@ n016=@@@
 The root
 @@@
 
-n017=1314,678
+n017=1751,266
 n018=35
 
 [s002f]
@@ -367,7 +367,7 @@ n016=@@@
 The root
 @@@
 
-n017=229,1433
+n017=652,650
 n018=39
 
 
@@ -377,7 +377,7 @@ n018=39
 sheet=config
 
 ###VARIOUS-CONTENTS-BEGIN###
-; The setting was created automatically. 2023/05/04 9:46:59
+; The setting was created automatically. 2023/05/04 10:17:48
 ; * pssgEditor version : 0.73.172009.ddf164274cdb5999dda57d462a9268c5ede78159
 psggfile=@@@
 OpenWebControl.psgg
@@ -395,7 +395,7 @@ c_thumbnail=1
 c_contents=1
 force_display_outpin=0
 last_action=@@@
-init,Saved
+mov,align H
 @@@
 target_pathdir=@@@
 /
@@ -410,7 +410,7 @@ nodegroup_pos_list=@@@
 [{"Key":"\/","Value":{"x":100,"y":100}},{"Key":"\/LoginSet\/","Value":{"x":563,"y":23}}]
 @@@
 fillter_state_location_list=@@@
-[{"Key":"\/","Value":[{"Key":"S_START","Value":{"x":45,"y":114}},{"Key":"S_END","Value":{"x":611,"y":1710}},{"Key":"E_0000","Value":{"x":139,"y":12}},{"Key":"S_INIT","Value":{"x":136,"y":113}},{"Key":"S_OPEN","Value":{"x":130,"y":263}},{"Key":"S_WAIT_1DAY","Value":{"x":224,"y":1700}},{"Key":"S_CLOSE","Value":{"x":416,"y":1703}},{"Key":"S_INPUT_ID","Value":{"x":818,"y":12}},{"Key":"S_INPUT_PWD","Value":{"x":1016,"y":16}},{"Key":"S_INPUT_BUTTON","Value":{"x":1205,"y":0}},{"Key":"S_WAIT_1SEC1","Value":{"x":1022,"y":279}},{"Key":"S_WAIT_1SEC2","Value":{"x":1675,"y":349}},{"Key":"C_0001","Value":{"x":330,"y":14}},{"Key":"S_INPUT_EMAIL","Value":{"x":458,"y":344}},{"Key":"S_CLICK_URL1","Value":{"x":499,"y":266}},{"Key":"S_WAIT_TRANSFER","Value":{"x":655,"y":678}},{"Key":"S_WAIT_TRANSFER1","Value":{"x":192,"y":1399}},{"Key":"S_CLICK_URL2","Value":{"x":379,"y":1397}},{"Key":"S_WAIT_TRANSFER2","Value":{"x":637,"y":1400}},{"Key":"S_CLICK_URL3","Value":{"x":824,"y":1398}},{"Key":"S_WAIT_TRANSFER3","Value":{"x":1030,"y":1397}},{"Key":"S_WAIT_1SEC3","Value":{"x":185,"y":685}},{"Key":"S_WAIT_1SEC4","Value":{"x":885,"y":674}},{"Key":"S_CLICK_URL4","Value":{"x":54,"y":902}},{"Key":"S_CLICK_ENGLISH","Value":{"x":441,"y":675}},{"Key":"____altnative_state____LoginSet","Value":{"x":563,"y":23}},{"Key":"S_CLICK_JAPANESE","Value":{"x":1096,"y":677}},{"Key":"S_WAIT_TRANSFER4","Value":{"x":1314,"y":678}},{"Key":"S_WAIT_TRANSFER5","Value":{"x":361,"y":266}},{"Key":"S_WAIT_TRANSFER6","Value":{"x":229,"y":1433}}]},{"Key":"\/LoginSet\/","Value":[{"Key":"S_INPUT_ID","Value":{"x":818,"y":12}},{"Key":"S_INPUT_PWD","Value":{"x":1016,"y":16}},{"Key":"S_INPUT_BUTTON","Value":{"x":1205,"y":0}}]}]
+[{"Key":"\/","Value":[{"Key":"S_START","Value":{"x":45,"y":114}},{"Key":"S_END","Value":{"x":1150,"y":729}},{"Key":"E_0000","Value":{"x":139,"y":12}},{"Key":"S_INIT","Value":{"x":136,"y":113}},{"Key":"S_OPEN","Value":{"x":130,"y":266}},{"Key":"S_CLOSE","Value":{"x":955,"y":722}},{"Key":"S_INPUT_ID","Value":{"x":818,"y":12}},{"Key":"S_INPUT_PWD","Value":{"x":1016,"y":16}},{"Key":"S_INPUT_BUTTON","Value":{"x":1205,"y":0}},{"Key":"C_0001","Value":{"x":330,"y":14}},{"Key":"S_WAIT_TRANSFER","Value":{"x":1092,"y":266}},{"Key":"S_WAIT_1SEC3","Value":{"x":622,"y":266}},{"Key":"S_WAIT_1SEC4","Value":{"x":1322,"y":266}},{"Key":"S_CLICK_ENGLISH","Value":{"x":878,"y":266}},{"Key":"S_CLICK_JAPANESE","Value":{"x":1533,"y":266}},{"Key":"S_WAIT_TRANSFER4","Value":{"x":1751,"y":266}},{"Key":"S_WAIT_TRANSFER5","Value":{"x":361,"y":266}},{"Key":"S_WAIT_TRANSFER6","Value":{"x":652,"y":650}},{"Key":"____altnative_state____LoginSet","Value":{"x":563,"y":23}}]},{"Key":"\/LoginSet\/","Value":[{"Key":"S_INPUT_ID","Value":{"x":818,"y":12}},{"Key":"S_INPUT_PWD","Value":{"x":1016,"y":16}},{"Key":"S_INPUT_BUTTON","Value":{"x":1205,"y":0}}]}]
 @@@
 linecolor_data=@@@
 [{"color":{"knownColor":0,"name":null,"state":2,"value":4285493103},"pattern":"BACKTO_"}]
